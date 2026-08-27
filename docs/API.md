@@ -36,3 +36,18 @@
 | `containmentStarted` | boolean | 已开始遏制 |
 
 接口统一返回 `ApiResponse`；业务冲突使用 HTTP 409，参数错误使用 400，未认证使用 401，无权限使用 403。
+
+## 专业 SIEM 接口
+
+| 方法 | 路径 | 说明 |
+| --- | --- | --- |
+| GET | `/api/siem-ops/dashboard` | 数据源、规则和安全事件总览 |
+| POST | `/api/siem-ops/sources` | 登记日志源 |
+| POST | `/api/admin/siem-ops/sources/{id}/activate` | 启用日志源 |
+| POST | `/api/admin/siem-ops/rules` | 发布检测规则 |
+| POST | `/api/siem-ops/sources/{id}/events` | 接收事件并执行检测 |
+| POST | `/api/siem-ops/incidents/{id}/assign` | 分派安全事件 |
+| POST | `/api/siem-ops/incidents/{id}/investigate` | 提交调查和证据 |
+| POST | `/api/siem-ops/incidents/{id}/respond` | 执行遏制响应 |
+| POST | `/api/siem-ops/incidents/{id}/recover` | 登记业务恢复 |
+| POST | `/api/admin/siem-ops/incidents/{id}/close` | 关闭安全事件 |

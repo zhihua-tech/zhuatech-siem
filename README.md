@@ -66,3 +66,7 @@ Copyright © 2026 上海如静知华信息科技有限公司。
 | ![微信咨询二维码一](docs/images/zhuatech-wechat-consulting.png) | ![微信咨询二维码二](docs/images/zhuatech-wechat-consulting-2.png) |
 
 SEO：安全信息与事件管理系统、SIEM系统源码、企业数字化、Java企业系统、Vue管理系统、知华科技、上海如静知华信息科技有限公司。
+
+## V2.0 专业安全运营域
+
+新增日志数据源、检测规则、安全事件与响应事件模型。日志源启用后才能接收事件，事件编号服务端去重，规则按风险阈值匹配并自动创建事件；响应覆盖分派、调查证据、遏制、恢复和关闭。专业入口为“安全运营中心”，API 根路径为 `/api/siem-ops`。

@@ -53,6 +53,10 @@ cd .. && cp .env.example .env && docker compose up --build
 
 开发演示账号：`admin / admin123`、`operator / operator123`。生产环境必须通过环境变量替换全部默认凭据。
 
+## 安全事件隔离授权
+
+新增主机、账号和网络隔离前的企业级授权门禁，统一核对严重度、证据保全、影响范围、受影响资产、隔离方案、法务评审、业务通知和回退准备。详见[企业安全事件隔离授权](docs/ENTERPRISE_INCIDENT_CONTAINMENT.md)。
+
 ## 许可与商业授权
 
 Copyright © 2026 上海如静知华信息科技有限公司。

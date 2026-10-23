@@ -1,0 +1,89 @@
+{
+  "slug": "siem",
+  "title": "告警事件计数与处置复核预检",
+  "fields": [
+    {
+      "key": "incident_no",
+      "label": "事件编号",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "severity",
+      "label": "等级",
+      "type": "ENUM",
+      "length": 200,
+      "options": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ]
+    },
+    {
+      "key": "observed",
+      "label": "关联告警数",
+      "type": "INTEGER",
+      "length": 200,
+      "scale": 0
+    },
+    {
+      "key": "confirmed",
+      "label": "确认告警数",
+      "type": "INTEGER",
+      "length": 200,
+      "scale": 0
+    },
+    {
+      "key": "handler",
+      "label": "处理人",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "reviewer",
+      "label": "复核人",
+      "type": "ID",
+      "length": 200
+    }
+  ],
+  "unique": [
+    [
+      "incident_no"
+    ]
+  ],
+  "rules": [
+    {
+      "op": "LE",
+      "args": [
+        "confirmed",
+        "observed"
+      ],
+      "code": "ALERT_COUNT",
+      "message": "确认告警数不能超过关联告警数",
+      "bad": {
+        "confirmed": "21"
+      }
+    },
+    {
+      "op": "DIFFERENT",
+      "args": [
+        "handler",
+        "reviewer"
+      ],
+      "code": "INCIDENT_SELF_REVIEW",
+      "message": "处理人与复核人须不同",
+      "bad": {
+        "reviewer": "SOC-01"
+      }
+    }
+  ],
+  "sampleCsv": "incident_no,severity,observed,confirmed,handler,reviewer\nSIEM-001,HIGH,20,15,SOC-01,SOC-02\n",
+  "limits": {
+    "rows": 500,
+    "bytes": 262144,
+    "columns": 32,
+    "cellCharacters": 4000
+  },
+  "scope": "Read-only batch validation; no persistence, reference-master lookup or full production certification."
+}

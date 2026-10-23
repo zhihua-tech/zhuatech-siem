@@ -1,0 +1,54 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "PASS",
+      "uniqueEvents": "#600",
+      "uncorrelatedEvents": "#50"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "correlatedUnique": "539"
+    },
+    "expected": {
+      "decision": "REVIEW"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "unhandledCritical": "1"
+    },
+    "expected": {
+      "decision": "HOLD"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "duplicates": "1001"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "correlatedUnique": "601"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "rawEvents": "0",
+      "duplicates": "0",
+      "correlatedUnique": "0"
+    },
+    "expected": {
+      "decision": "REVIEW"
+    },
+    "error": false
+  }
+]
